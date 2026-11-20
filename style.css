@@ -1,0 +1,185 @@
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f7f6;
+  --text: #1e2a28;
+  --muted: #5b6b68;
+  --accent: #0f766e;
+  --accent-dark: #0b5953;
+  --border: #dde6e3;
+  --radius: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.brand {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav { display: flex; gap: 1.25rem; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.nav a:hover { color: var(--accent); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--accent-dark); color: #fff; }
+.btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.btn.secondary:hover { background: var(--accent); color: #fff; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(160deg, var(--bg-soft), #e3f1ee);
+  padding: 4rem 0 4.5rem;
+}
+.eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  max-width: 18ch;
+}
+.hero p.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 52ch;
+  margin: 0 0 2rem;
+}
+.hero .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Sections */
+section { padding: 4rem 0; }
+section.soft { background: var(--bg-soft); }
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin: 0 0 0.5rem;
+}
+.section-intro { color: var(--muted); margin: 0 0 2rem; max-width: 56ch; }
+
+/* Leistungen */
+.cards {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.card p { margin: 0; color: var(--muted); }
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #e3f1ee;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Kontakt */
+.contact-box {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+}
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.contact-list strong { display: block; font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+/* Rechtstext (Impressum) */
+.legal { padding: 3rem 0 4rem; max-width: 720px; }
+.legal h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 0 0 1.5rem; }
+.legal h2 { font-size: 1.2rem; margin: 2rem 0 0.5rem; }
+.legal p { margin: 0 0 1rem; }
+
+/* Tablet & Desktop */
+@media (min-width: 700px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .contact-box { grid-template-columns: 1fr 1fr; padding: 2.25rem; }
+  .hero { padding: 6rem 0 6.5rem; }
+}
+@media (min-width: 960px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
